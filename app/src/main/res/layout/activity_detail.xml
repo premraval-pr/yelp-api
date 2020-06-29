@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/bs_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Business Name"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/image_business"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/noimage"
+        app:layout_constraintTop_toBottomOf="@id/bs_name"
+        app:layout_constraintBottom_toTopOf="@id/bs_phone"
+        />
+
+    <TextView
+        android:id="@+id/phone_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        app:layout_constraintVertical_bias="0.4"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bs_phone"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/bs_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/phone_label"
+        app:layout_constraintBottom_toBottomOf="@id/phone_label"
+        app:layout_constraintStart_toEndOf="@id/phone_label"/>
+
+    <TextView
+        android:id="@+id/web_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Web Url"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_label"
+        app:layout_constraintEnd_toStartOf="@id/bs_web"
+        app:layout_constraintBottom_toTopOf="@id/cat_label"/>
+
+    <TextView
+        android:id="@+id/bs_web"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:maxLines="4"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/web_label"
+        app:layout_constraintBottom_toBottomOf="@id/web_label"
+        app:layout_constraintStart_toEndOf="@id/web_label"/>
+
+    <TextView
+        android:id="@+id/cat_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/web_label"
+        app:layout_constraintEnd_toStartOf="@id/bs_cat"
+        app:layout_constraintBottom_toTopOf="@id/price_label"/>
+
+    <TextView
+        android:id="@+id/bs_cat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cat_label"
+        app:layout_constraintBottom_toBottomOf="@id/cat_label"
+        app:layout_constraintStart_toEndOf="@id/cat_label"/>
+    <TextView
+        android:id="@+id/price_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Price Class"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cat_label"
+        app:layout_constraintEnd_toStartOf="@id/bs_price"
+        app:layout_constraintBottom_toTopOf="@id/bs_hours"/>
+
+    <TextView
+        android:id="@+id/bs_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Unavailable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/price_label"
+        app:layout_constraintBottom_toBottomOf="@id/price_label"
+        app:layout_constraintStart_toEndOf="@id/price_label"/>
+
+    <TextView
+        android:id="@+id/hour_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hours"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price_label"
+        app:layout_constraintEnd_toStartOf="@id/bs_hours"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/bs_hours"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Unavailable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/hour_label"
+        app:layout_constraintBottom_toBottomOf="@id/hour_label"
+        app:layout_constraintStart_toEndOf="@id/hour_label"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
