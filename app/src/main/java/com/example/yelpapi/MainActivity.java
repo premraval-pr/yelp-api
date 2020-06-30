@@ -38,12 +38,17 @@ public class MainActivity extends AppCompatActivity implements MapsInterface{
     MapsFragment mapsFragment;
     FusedLocationProviderClient fusedLocationProviderClient;
     public static final int LOCATION_CODE = 99;
-    GoogleMap googleMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        yelpAdapter = new YelpAdapter(this, android.R.layout.simple_dropdown_item_1line);
+        yelpAPI = new YelpAPI(getApplicationContext(),yelpAdapter,this);
+        autoCompleteTextView = findViewById(R.id.actv_search);
+        autoCompleteTextView.setAdapter(yelpAdapter);
+        autoCompleteTextView.setThreshold(2);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -65,11 +70,7 @@ public class MainActivity extends AppCompatActivity implements MapsInterface{
                     }
                 });
 
-        yelpAdapter = new YelpAdapter(this, android.R.layout.simple_dropdown_item_1line);
-        yelpAPI = new YelpAPI(getApplicationContext(),yelpAdapter,this);
-        autoCompleteTextView = findViewById(R.id.actv_search);
-        autoCompleteTextView.setAdapter(yelpAdapter);
-        autoCompleteTextView.setThreshold(2);
+
         autoCompleteTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements MapsInterface{
     }
 
     private void getMap() {
+
         mapsFragment = new MapsFragment(lat, lon,yelpAdapter);
 
         getSupportFragmentManager()
@@ -122,5 +124,16 @@ public class MainActivity extends AppCompatActivity implements MapsInterface{
     @Override
     public void updateMap() {
         mapsFragment.updateMarker();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode ==LOCATION_CODE){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                startActivity(new Intent(this,MainActivity.class));
+                finish();
+            }
+        }
     }
 }
